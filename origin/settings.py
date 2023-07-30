@@ -84,27 +84,18 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_project_db',
-        'USER': 'django',
-        'PASSWORD': 'Eek3Uoxaa9ci',
+        'NAME': 'Training',
+        'USER': 'postgres',
+        'PASSWORD': 'd1mas1k',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'Training',
-#         'USER': 'postgres',
-#         'PASSWORD': 'd1mas1k',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
 
 
 # Password validation
@@ -167,18 +158,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-
-# CORS_ALLOW_CREDENTIALS = True
-
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-# ]
-
-# CORS_ALLOWED_ORIGIN_REGEXES = [
-#     'http://localhost:3000',
-# ]
-
 CORS_ALLOW_ALL_ORIGINS = True
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
@@ -199,15 +178,15 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Время жизни access token (по умолчанию 5 минут)
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),  # Время жизни refresh token при каждом обновлении (по умолчанию 1 день)
-    'SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD': timedelta(minutes=10),  # Грейс-период для обновления refresh token (по умолчанию 10 минут)
-    'ALGORITHM': 'HS256',  # Алгоритм шифрования (по умолчанию HS256)
-    'SIGNING_KEY': SECRET_KEY,  # Ключ для подписи токенов (используется SECRET_KEY из settings.py)
-    'AUTH_HEADER_TYPES': ('Bearer',),  # Тип заголовка авторизации (по умолчанию 'Bearer')
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),  # Классы для обработки токенов
-    'USER_ID_FIELD': 'id',  # Поле модели пользователя, используемое для кодирования в токен (по умолчанию 'id')
-    'USER_ID_CLAIM': 'user_id',  # Ключ, под которым сохраняется ID пользователя в токене (по умолчанию 'user_id')
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),  
+    'SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD': timedelta(minutes=10), 
+    'ALGORITHM': 'HS256',  
+    'SIGNING_KEY': SECRET_KEY,  
+    'AUTH_HEADER_TYPES': ('Bearer',), 
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),  
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id', 
     "ROTATE_REFRESH_TOKENS": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": True,
